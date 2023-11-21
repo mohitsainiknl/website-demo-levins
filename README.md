@@ -1,6 +1,17 @@
-# Levin’s Pharmadeals International - Website Demo
+<h1 align="center">Levin’s Pharmadeals - Website Demo</h1>
+<p align="center">
+   <a href="https://website-demo-levins.vercel.app" target="_blank">
+       <img alt= "mohitsainiknl webiste demo levins home" src="/.readme/live-demo-button.png" width="160">
+   </a>
+</p>
+<img alt= "mohitsainiknl webiste demo levins home" src="/.readme/website_demo_levins - home3.png">
 
-Welcome to the Levin's Pharmadeals International (OPC) Pvt Ltd Website Demo repository! Levin's is dedicated to export the pharmaceuticals and medical items globally, with a current focus on regions including South East Asia, South Pacific Islands, Mauritius, Madagascar, and East Africa.
+## Overview:
+<ul>
+    <li><b>Company : </b><i>Levin's Pharmadeals International (OPC) Pvt Ltd</i></li>
+    <li><b>Location : </b><i>Karnal, Haryana, India</i></li>
+    <li><b>Website Created : </b><i>April 2022</i></li>
+</ul>
 
 ## Technologies Used
 
@@ -33,9 +44,7 @@ This website demo harnesses a powerful stack of technologies to deliver a seamle
    - `npm run watch` - Watch for changes in CSS, JS, and HTML and automatically rebuild.
    - `npm run serve` - Launch a development server with BrowserSync for live preview.
 
-Feel free to reach out for any inquiries or collaboration opportunities. Explore the Levin’s Pharmadeals International Website Demo to witness the seamless integration of technology and business vision.
-
-*Note: This readme provides a brief overview. For detailed information, visit the Levin’s Pharmadeals International website.*
+*Note: This readme provides a brief overview. For detailed information, visit <a href="https://levinspharmadeals.com" target="_blank">the Levin’s Pharmadeals International website.</a>*
 
 
 
