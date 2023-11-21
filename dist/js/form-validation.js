@@ -1,0 +1,1 @@
+(()=>{"use strict";let a=document.querySelectorAll(".needs-validation");Array.from(a).forEach(a=>{a.addEventListener("submit",b=>{a.checkValidity()||(b.preventDefault(),b.stopPropagation()),a.classList.add("was-validated")},!1)})})()

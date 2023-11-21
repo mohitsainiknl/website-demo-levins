@@ -1,0 +1,1 @@
+$(document).ready(function(){var a=null;$.fn.showCertificate=function(b){$("."+b).addClass("d-flex"),$(".btn-close").addClass("d-block"),a=b},$.fn.hideCertificate=function(){null!==a&&($("."+a).removeClass("d-flex"),$(".btn-close").removeClass("d-block"),a=null)}})
