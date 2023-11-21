@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <module href="/components/head.html"></module>
+
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+
+<style>
+        body {
+            font-family: Geomanist-Regular, sans-serif;
+            --my-primary: #1784ff;
+            --my-dark-primary: #086eff;
+            --my-back: #D1E6FF;
+            --my-black: #373435;
+            --my-yellow: #FEC30C;
+            --my-green: #88c23d;
+            --my-purple: #C865E8;
+            /* background-color: rgb(197, 236, 198); */
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 4rem 2rem;
+        }
+
+        .flex-content {
+            height: 600px;
+            width: 500px;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            /* border: 1px solid rgb(175, 175, 175); */
+        }
+
+        .item-container {
+            height: 450px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        #certificate .certificate {
+            position: fixed;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            /* display: flex; */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.8) !important;
+            z-index: 100000;
+        }
+
+        #certificate .btn-close {
+            display: none;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 100009;
+            border-radius: 50%;
+            padding: 8px;
+            background-color: rgba(132, 132, 132, 0.696) !important;
+        }
+
+        #certificate img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+
+        .item {
+            height: 430px;
+
+            transition: height 0.5s ease;
+        }
+
+        .item,
+        .item .item-content {
+            width: 310px;
+        }
+
+        .item .item-image {
+            background-color: white;
+            border: 1px solid #373435;
+            width: 280px;
+            /* opacity: 0.5; */
+            left: 50%;
+            top: -20px;
+            transform: translate(-50%, 0);
+            transition: top 0.5s ease;
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+            z-index: 10;
+        }
+
+        .item .item-content {
+            height: 418px;
+            border-radius: 6px;
+            bottom: 0;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: box-shadow 0.1s ease;
+            z-index: 9;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgb(0 0 0 / 10%) 0px 5px 25px, silver 0px 1px 5px -1px;
+        }
+
+        .flex-content:hover .item {
+            height: 430px;
+        }
+
+        .flex-content:hover .item-content {
+            bottom: 0;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgb(0 0 0 / 10%) 0px 5px 25px, silver 0px 1px 5px -1px;
+        }
+
+        .flex-content:hover .item-image {
+            left: 50%;
+            top: -20px;
+            transform: translate(-50%, 0);
+        }
+
+        .item .item-content .box .small-p {
+            line-height: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .item .view-placeholder {
+            display: flex;
+            position: absolute;
+            width: 32px;
+            padding: 0 3px;
+            border-radius: 3px;
+            bottom: 5px;
+            right: 5px;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(40, 40, 40, 0.6);
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        .item-container button {
+            color: var(--my-black);
+        }
+
+        .item-container button:hover,
+        .item-container button:focus {
+            color: var(--my-black);
+            box-shadow: none !important;
+            background: none;
+        }
+
+        .item-container button:hover .view-placeholder {
+            display: flex !important;
+        }
+
+
+        @media only screen and (min-width: 1200px) {
+            .flex-content .item {
+                height: 450px;
+            }
+
+            .item .item-image {
+                top: 30px;
+            }
+
+            .flex-content .item-content {
+                box-shadow: rgb(0 0 0 / 0%) 0px 5px 25px, silver 0px 1px 5px -1px;
+            }
+
+            .item .view-placeholder {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="root">
+        <div id="certificate">
+            <button onclick="$().hideCertificate();" class="btn btn-close" aria-label="Close"></button>
+            <div class="certificate certificate-1">
+                <img src="./images/certificates/Certificate-of-Incorporation_1.webp" alt="">
+            </div>
+            <div class="certificate certificate-2">
+                <img src="./images/certificates/GST-Registration-Certificate_1.webp" alt="">
+            </div>
+            <div class="certificate certificate-3">
+                <img src="./images/certificates/IEC-Certificate_1.webp" alt="">
+            </div>
+            <div class="certificate certificate-4">
+                <img src="./images/certificates/Drug-License_1.webp" alt="">
+            </div>
+        </div>
+        <header id="header" class="d-flex flex-column">
+            <module href="/components/navbar.html"></module>
+
+            <section class="position-relative">
+                <svg id="circle-tr" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 682 288"
+                    style="enable-background:new 0 0 682 288;" xml:space="preserve">
+                    <style type="text/css">
+                        .c1-st0 {
+                            opacity: 0.2;
+                            fill: #1784FF;
+                        }
+                    </style>
+                    <ellipse class="c1-st0" cx="632.6" cy="-810" rx="566.8" ry="511.7" />
+                </svg>
+                <svg id="circle-dl" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 682 288"
+                    style="enable-background:new 0 0 682 288;" xml:space="preserve">
+                    <style type="text/css">
+                        .c2-st0 {
+                            opacity: 0.2;
+                            fill: #1784FF;
+                        }
+                    </style>
+                    <ellipse class="c2-st0" cx="149.9" cy="1060" rx="566.8" ry="511.7" />
+                </svg>
+                <div id="other-banners">
+                    <div
+                        class="container c-height d-flex flex-column justify-content-center align-items-center text-center">
+                        <div>
+                            <h1 class="bottom-line">Achievements</h1>
+                            <p class="mt-4-1 fw-bold">All certificates we achieved.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="py-5 my-5 d-flex justify-content-start align-items-center border-bottom">
+                    <h3>Home</h3>
+                    <svg style="margin: 0px 15px 4px 15px;" width="30px" height="30px" x="0px" y="0px"
+                        viewBox="0 0 1024 1024" class="icon" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="currentColor"
+                            d="M338.752 104.704a64 64 0 000 90.496l316.8 316.8-316.8 316.8a64 64 0 0090.496 90.496l362.048-362.048a64 64 0 000-90.496L429.248 104.704a64 64 0 00-90.496 0z" />
+                    </svg>
+                    <h3>Achievements</h3>
+                </div>
+            </div>
+
+
+            <section class="container py-5 mt-5">
+                <div class="">
+                    <div class="d-flex justify-content-center">
+                        <div class="w-70 text-center">
+                            <h2 class="bottom-line">Our Certificates</h2>
+                            <p class="mt-4-2">
+                                <span class="fw-bold">As a supplier</span> we have association with more than <span
+                                    class="fw-bold">30 manufacturers</span> specialized in various domains having plants
+                                approved by <span class="fw-bold">USFDA, EU, TGA, PICS, WHO-GMP, MHRA, CE</span> etc.
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex-container">
+                            <div class="flex-content position-relative">
+                                <div class="item-container">
+                                    <button type="button" onclick="$().showCertificate('certificate-1');"
+                                        class="btn btn-link item position-relative">
+                                        <div class="item-image position-absolute">
+                                            <div class="position-relative">
+                                                <div class="view-placeholder">
+                                                    <div>
+                                                        <img width="100%" src="./images/certificates/view-icon.svg"
+                                                            alt="">
+                                                    </div>
+                                                </div>
+                                                <img width="100%"
+                                                    src="./images/certificates/Certificate-of-Incorporation_1.webp"
+                                                    alt="">
+                                            </div>
+                                        </div>
+                                        <div class="item-content position-absolute d-flex">
+                                            <div class="box align-self-end flex-grow-1">
+                                                <p class="small-p">
+                                                    Issued Date: 19 Feb, 2020<br>
+                                                    Place: Karnal
+                                                </p>
+                                                <p class="fw-bold">Certificate Of Incorporation</p>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex-content position-relative">
+                                <div class="item-container">
+                                    <button type="button" onclick="$().showCertificate('certificate-2');"
+                                        class="btn btn-link item position-relative">
+                                        <div class="item-image position-absolute">
+                                            <div class="position-relative">
+                                                <div class="view-placeholder">
+                                                    <div>
+                                                        <img width="100%" src="./images/certificates/view-icon.svg"
+                                                            alt="">
+                                                    </div>
+                                                </div>
+                                                <img width="100%"
+                                                    src="./images/certificates/GST-Registration-Certificate_1.webp"
+                                                    alt="">
+                                            </div>
+                                        </div>
+                                        <div class="item-content position-absolute d-flex">
+                                            <div class="box align-self-end flex-grow-1">
+                                                <p class="small-p">
+                                                    Issued Date: 28 Feb, 2020<br>
+                                                    place: karnal
+                                                </p>
+                                                <p class="fw-bold">GST Registration Certificate</p>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex-content position-relative">
+                                <div class="item-container">
+                                    <button type="button" onclick="$().showCertificate('certificate-3');"
+                                        class="btn btn-link item position-relative">
+                                        <div class="item-image position-absolute">
+                                            <div class="position-relative">
+                                                <div class="view-placeholder">
+                                                    <div>
+                                                        <img width="100%" src="./images/certificates/view-icon.svg"
+                                                            alt="">
+                                                    </div>
+                                                </div>
+                                                <img width="100%" src="./images/certificates/IEC-Certificate_1.webp"
+                                                    alt="">
+                                            </div>
+                                        </div>
+                                        <div class="item-content position-absolute d-flex">
+                                            <div class="box align-self-end flex-grow-1">
+                                                <p class="small-p">
+                                                    Issued Date: 13 May, 2020<br>
+                                                    place: karnal
+                                                </p>
+                                                <p class="fw-bold">IEC Certificate</p>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex-content position-relative">
+                                <div class="item-container">
+                                    <button type="button" onclick="$().showCertificate('certificate-4');"
+                                        class="btn btn-link item position-relative">
+                                        <div class="item-image position-absolute">
+                                            <div class="position-relative">
+                                                <div class="view-placeholder">
+                                                    <div>
+                                                        <img width="100%" src="./images/certificates/view-icon.svg"
+                                                            alt="">
+                                                    </div>
+                                                </div>
+                                                <img width="100%" src="./images/certificates/Drug-License_1.webp"
+                                                    alt="">
+                                            </div>
+                                        </div>
+                                        <div class="item-content position-absolute d-flex">
+                                            <div class="box align-self-end flex-grow-1">
+                                                <p class="small-p">
+                                                    Issued Date: 3 March, 2022<br>
+                                                    place: karnal
+                                                </p>
+                                                <p class="fw-bold">Drug License</p>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer START Here -->
+ 
+        <module href="/components/footer.html"></module>
+ 
+        <!-- Footer END Here -->
+        <script src="./js/anime.min.js" type="text/javascript"></script>
+        <script src="./js/other-anime.js" type="text/javascript"></script>
+        <script src="./js/jquery-3.6.0.min.js" type="text/javascript"></script>
+        <script src="./js/bootstrap.bundle.js" type="text/javascript"></script>
+        <script src="./js/main.js" type="text/javascript"></script>
+        <script src="./js/show-certificate.js" type="text/javascript"></script>
+
+
+    </div>
+</body>
+
+</html>
