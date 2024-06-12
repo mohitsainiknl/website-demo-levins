@@ -1,6 +1,6 @@
 <h1 align="center">Levin’s Pharmadeals - Website Demo</h1>
 <p align="center">
-   <a href="https://website-demo-levins.vercel.app" target="_blank">
+   <a href="https://levins.vercel.app" target="_blank">
        <img alt= "mohitsainiknl webiste demo levins home" src="/.readme/live-demo-button.png" width="160">
    </a>
 </p>
